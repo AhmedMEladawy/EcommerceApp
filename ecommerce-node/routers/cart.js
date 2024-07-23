@@ -30,23 +30,30 @@ router.post("/cart", Auth, async (req, res) => {
   try {
     const cart = await Cart.findOne({ owner });
     const item = await Item.findOne({ _id: itemId });
-
+    console.log("Cart:", cart);
+    console.log("item:", item);
     if (!item) {
       res.status(404).send({ message: "item not found" });
       return;
     }
     const price = item.price;
+    console.log("Price: ", price);
     const name = item.name;
+    console.log("Name: ", name);
     //If cart already exists for user,
     if (cart) {
       const itemIndex = cart.items.findIndex((item) => item.itemId == itemId);
+      console.log("itemId: ", itemId);
+      console.log("itemIndex:", itemIndex);
       //check if product exists or not
 
       if (itemIndex > -1) {
         let product = cart.items[itemIndex];
+        console.log("Product:", product);
         product.quantity += quantity;
 
         cart.bill = cart.items.reduce((acc, curr) => {
+          //   console.log("Bill: ", cart.bill);
           return acc + curr.quantity * curr.price;
         }, 0);
 
@@ -56,6 +63,7 @@ router.post("/cart", Auth, async (req, res) => {
       } else {
         cart.items.push({ itemId, name, quantity, price });
         cart.bill = cart.items.reduce((acc, curr) => {
+          console.log("Bill: ", cart.bill);
           return acc + curr.quantity * curr.price;
         }, 0);
 
