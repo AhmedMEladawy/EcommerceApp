@@ -25,22 +25,12 @@ Getting Started
 
     npm install
 
-    npm start
+    npm start or npm run dev
 
 Prerequisites
 
     npm packages
 
-npm install
-Installation
-
-    fork the repo
-
-    clone the Repo
-
-    install dependencies: npm install
-
-    run dev server npm run dev
 
 API Endpoints
 
