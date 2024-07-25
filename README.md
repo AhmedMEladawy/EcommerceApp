@@ -5,9 +5,9 @@ About The Project
 This is an ecommerce API built with NodeJs. It features authentication, CRUD ability on items, cart and user. 
 Create your .env file in config directory
 Environmental variables:
-JWT_SECRET
-PORT=3000
-MONGODB_URL
+    JWT_SECRET
+    PORT=3000
+    MONGODB_URL
 
 Built With
 
@@ -45,7 +45,7 @@ API Endpoints
       "password": "test1234"
     }
 
-Login User
+    Login User
     Method: POST
     URL: /users/login
     Description: Login a user.
